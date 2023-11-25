@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -24,7 +25,7 @@ public class FileIO {
 			
 			String line;
 			
-			while((line= br.readLine()) != null){
+			while((line= BoundedLineReader.readLine(br, 5_000_000)) != null){
 				//the files provided divide up the information with
 				//semi colons
 				String[] currentLine = line.split(";");
